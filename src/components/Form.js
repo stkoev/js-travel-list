@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form({ addTask }) {
+function Form({ onAddItem }) {
   const [quantity, setQuantity] = useState(1);
   const [description, setDescription] = useState("");
 
@@ -13,7 +13,7 @@ function Form({ addTask }) {
       quantity: quantity,
       packed: false,
     };
-    addTask(newItem);
+    onAddItem(newItem);
     setQuantity(1);
     setDescription("");
   }

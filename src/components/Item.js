@@ -1,4 +1,4 @@
-function Item({ item }) {
+function Item({ item, onDeleteItem }) {
   console.log();
   const { id, description, quantity, packed } = item;
   return (
@@ -6,7 +6,7 @@ function Item({ item }) {
       <span style={packed ? { textDecoration: "line-through" } : {}}>
         {quantity} {description}
       </span>
-      <button>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }

@@ -11,15 +11,18 @@ const initialItems = [
 ];
 
 function App() {
-  const [items, setInitialItems] = useState(initialItems);
-  function addTask(task) {
-    setInitialItems([...items, task]);
+  const [items, setItems] = useState([]);
+  function handleAddItem(item) {
+    setItems((c) => [...c, item]);
+  }
+  function handleDeleteItem(itemId) {
+    setItems((items) => [...items.filter((item) => item.id !== itemId)]);
   }
   return (
     <div className="App">
       <Logo />
-      <Form addTask={addTask} />
-      <PackingList initialItems={items} />
+      <Form onAddItem={handleAddItem} />
+      <PackingList items={items} onDeleteItem={handleDeleteItem} />
       <Stats />
     </div>
   );
