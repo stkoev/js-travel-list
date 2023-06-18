@@ -1,8 +1,15 @@
 import Item from "./Item";
 
-function PackingList({ items, onDeleteItem }) {
+function PackingList({ items, onDeleteItem, onHandleCheck }) {
   const renderedList = items.map((item) => {
-    return <Item item={item} key={item.id} onDeleteItem={onDeleteItem} />;
+    return (
+      <Item
+        item={item}
+        key={item.id}
+        onDeleteItem={onDeleteItem}
+        onHandleCheck={onHandleCheck}
+      />
+    );
   });
 
   return (

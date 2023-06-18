@@ -11,19 +11,31 @@ const initialItems = [
 ];
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(initialItems);
   function handleAddItem(item) {
     setItems((c) => [...c, item]);
   }
   function handleDeleteItem(itemId) {
-    setItems((items) => [...items.filter((item) => item.id !== itemId)]);
+    setItems((items) => items.filter((item) => item.id !== itemId));
   }
+  function handleCheck(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
   return (
     <div className="App">
       <Logo />
       <Form onAddItem={handleAddItem} />
-      <PackingList items={items} onDeleteItem={handleDeleteItem} />
-      <Stats />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onHandleCheck={handleCheck}
+      />
+      <Stats items={items} />
     </div>
   );
 }
