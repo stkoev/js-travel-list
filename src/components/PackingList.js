@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Item from "./Item";
 
-function PackingList({ items, onDeleteItem, onHandleCheck }) {
+function PackingList({ items, onDeleteItem, onHandleCheck, handleClearList }) {
   const [sortBy, setSortBy] = useState("input");
 
   function handleSortChange(e) {
@@ -37,7 +37,7 @@ function PackingList({ items, onDeleteItem, onHandleCheck }) {
   return (
     <div className="list">
       <ul>{renderedList} </ul>
-      <div className="action">
+      <div className="actions">
         <select name="" id="" onChange={handleSortChange} value={sortBy}>
           <option value="input">Sort by Input order</option>
           <option value="description">Sort by description</option>
@@ -45,6 +45,9 @@ function PackingList({ items, onDeleteItem, onHandleCheck }) {
           <option value="packed">Sort by packed status</option>
           <option value="reverseInput">Reversed Input</option>
         </select>
+        <button className="clear" onClick={handleClearList}>
+          clear list
+        </button>
       </div>
     </div>
   );
