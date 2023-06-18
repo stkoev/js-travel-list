@@ -1,7 +1,7 @@
-import Logo from "./components/Logo";
-import Form from "./components/Form";
-import Stats from "./components/Stats";
-import PackingList from "./components/PackingList";
+import Logo from "./Logo";
+import Form from "./Form";
+import Stats from "./Stats";
+import PackingList from "./PackingList";
 import { useState } from "react";
 
 const initialItems = [
@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <Logo />
       <Form onAddItem={handleAddItem} />
       <PackingList
